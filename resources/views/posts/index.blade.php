@@ -1,3 +1,4 @@
+<x-app-layout>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -6,6 +7,9 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
+    <x-slot name="header">
+        <h1>index</h1>
+    </x-slot>
     <body>
         <h1>Blog Name</h1>
         <a href='/posts/create'>create</a>
@@ -28,6 +32,7 @@
         <div class='paginate'>
             {{ $posts->links() }}
         </div>
+        <p>ログインユーザー：{{ Auth::user()->name }}</p>
         <script>
             function deletePost(id) {
                 'use strict'
@@ -39,3 +44,4 @@
         </script>
     </body>
 </html>
+</x-app-layout>
